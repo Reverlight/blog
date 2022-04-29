@@ -7,7 +7,6 @@ class Post(models.Model):
     description = models.TextField()
     image = models.ImageField(upload_to='uploads/%Y/%m/%d', blank=True, null=True)
     author = models.ForeignKey('User', on_delete=models.CASCADE)
-    comments = models.ManyToManyField('Comment', blank=True, null=True)
 
     def __str__(self):
         return self.theme
@@ -15,6 +14,7 @@ class Post(models.Model):
 
 class Comment(models.Model):
     author = models.ForeignKey('User', on_delete=models.CASCADE)
+    post = models.ForeignKey('Post', on_delete=models.CASCADE)
     content = models.TextField()
 
 

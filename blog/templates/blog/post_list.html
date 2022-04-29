@@ -1,0 +1,15 @@
+{% extends 'blog/base.html' %}
+
+{% block title %} Post List {% endblock %}
+
+{% block body %}
+        {% if not posts%}
+            There are no posts yet
+        {% endif %}
+        {% for post in posts %}
+            <p>Post theme {{ post.theme }}</p>
+            <p>Post description {{ post.description }}</p>
+            <p>Post author {{ post.author }}</p>
+            <a href="#">Post detail url</a>
+        {% endfor %}
+{% endblock %}

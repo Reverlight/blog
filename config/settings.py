@@ -127,3 +127,6 @@ AUTH_USER_MODEL = 'blog.User'
 
 MEDIA_URL = '/uploads/'
 MEDIA_ROOT = BASE_DIR.joinpath('uploads')
+
+LOGIN_URL = 'login'
+LOGIN_REDIRECT_URL = 'home'

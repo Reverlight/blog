@@ -1,6 +1,7 @@
 from django.contrib.auth import authenticate, login
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.shortcuts import render, redirect, get_object_or_404
+from django.urls import reverse_lazy
 from django.views.generic import ListView, CreateView, View
 
 from .models import Post, Comment
@@ -17,6 +18,7 @@ class PostCreateView(CreateView):
     model = Post
     fields = ['theme', 'description', 'image']
     template_name = 'blog/post_create.html'
+    success_url = reverse_lazy('home')
 
 
 class PostDetailView(LoginRequiredMixin, View):

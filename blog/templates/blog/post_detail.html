@@ -1,0 +1,10 @@
+{% extends 'blog/base.html' %}
+
+{% block title %} Post List {% endblock %}
+
+{% block body %}
+    <p>Post theme: {{ post.theme }}</p>
+    <p>Post description: {{ post.description }}</p>
+    <p>Post image <img src="{{ post.image.url }}" width="200px"  alt=""></p>
+    <hr>
+{% endblock %}

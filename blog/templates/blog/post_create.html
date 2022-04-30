@@ -6,22 +6,6 @@
     <form method="post" enctype="multipart/form-data">
         {% csrf_token %}
         {{ form.as_p }}
-{#        {% for field in form %}#}
-{#            <div class="fieldWrapper">#}
-{#                {% if field.name == 'image' %}#}
-{##}
-{#                    {{ field.errors }}#}
-{#                    {{ field.label_tag }} {{ field }}#}
-{#                {% else %}#}
-{##}
-{#                    {{ field.errors }}#}
-{#                    {{ field.label_tag }} {{ field }}#}
-{#                    {% if field.help_text %}#}
-{#                        <p class="help">{{ field.help_text|safe }}</p>#}
-{#                    {% endif %}#}
-{#                {% endif %}#}
-{#            </div>#}
-{#        {% endfor %}#}
         <button type="submit">Send</button>
     </form>
 {% endblock %}

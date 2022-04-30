@@ -7,4 +7,18 @@
     <p>Post description: {{ post.description }}</p>
     <p>Post image <img src="{{ post.image.url }}" width="200px"  alt=""></p>
     <hr>
+
+    <div class="comment-list">
+        {% for comment in comments %}
+            <p>Comment author: {{ comment.author }}</p>
+            <p>Comment content: {{ comment.content }}</p>
+            <hr>
+        {% endfor %}
+    </div>
+
+    <form method="POST" enctype="multipart/form-data">
+        {% csrf_token %}
+        {{ comment_form.as_p }}
+        <button type="submit">Add comment</button>
+    </form>
 {% endblock %}

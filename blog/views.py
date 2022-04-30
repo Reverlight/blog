@@ -2,8 +2,8 @@ from django.contrib.auth import authenticate, login
 from django.shortcuts import render, redirect
 from django.views.generic import ListView, CreateView, View
 
-from .models import Post, User
-from .forms import LoginForm
+from .models import Post
+from .forms import LoginForm, SignupForm
 
 
 class PostListView(ListView):
@@ -18,10 +18,26 @@ class PostCreateView(CreateView):
     template_name = 'blog/post_create.html'
 
 
-class UserCreateView(CreateView):
-    model = User
-    fields = ['username', 'password']
+class UserCreateView(View):
     template_name = 'blog/user_create.html'
+    form_class = SignupForm
+
+    def get(self, request):
+        form = self.form_class()
+        context = {
+            'form': form
+        }
+        return render(request, self.template_name, context=context)
+
+    def post(self, request):
+        form = self.form_class(request.POST)
+        if form.is_valid():
+            form.save()
+            return redirect('home')
+        context = {
+            'form': form
+        }
+        return render(request, self.template_name, context=context)
 
 
 class UserLoginView(View):

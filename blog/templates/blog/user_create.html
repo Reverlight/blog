@@ -1,0 +1,22 @@
+{% extends 'blog/base.html' %}
+
+{% block title %} Post List {% endblock %}
+
+{% block body %}
+    <form method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        {% for field in form %}
+        <div class="fieldWrapper">
+            {% if field.name == 'password' %}
+                <label for="{{ field.id_for_label }}">{{ field.name |title }}</label>
+                <input name="{{ field.name }}" type="password" id="{{ field.id_for_label}}">
+                {{ field.errors }}
+             {% else %}
+            {{ field.label_tag }} {{ field }}
+            {{ field.errors }}
+         {% endif %}
+        </div>
+{% endfor %}
+        <button type="submit">Send</button>
+    </form>
+{% endblock %}

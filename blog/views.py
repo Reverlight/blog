@@ -1,6 +1,6 @@
 from django.views.generic import ListView, CreateView
 
-from blog.models import Post
+from blog.models import Post, User
 
 
 class PostListView(ListView):
@@ -13,3 +13,9 @@ class PostCreateView(CreateView):
     model = Post
     fields = ['theme', 'description', 'image']
     template_name = 'blog/post_create.html'
+
+
+class UserCreateView(CreateView):
+    model = User
+    fields = ['username', 'password']
+    template_name = 'blog/user_create.html'

@@ -12,7 +12,6 @@ Blog app where user can add, view posts and comment them.
 pip install -r requirements
 python manage.py makemigrations
 python manage.py migrate
-python manage.py collectstatic
 
 ```
 

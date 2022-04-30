@@ -7,9 +7,9 @@
             There are no posts yet
         {% endif %}
         {% for post in posts %}
-            <p>Post theme {{ post.theme }}</p>
-            <p>Post description {{ post.description }}</p>
-            <p>Post author {{ post.author }}</p>
-            <a href="#">Post detail url</a>
+            <p>Post theme: {{ post.theme }}</p>
+            <p>Post description: {{ post.description }}</p>
+            <a href="{% url 'post-detail' pk=post.pk %}">Post detail url</a>
+            <hr>
         {% endfor %}
 {% endblock %}

@@ -9,3 +9,7 @@ class PostListView(ListView):
     template_name = 'blog/post_list.html'
 
 
+class PostCreateView(CreateView):
+    model = Post
+    fields = ['theme', 'description', 'image']
+    template_name = 'blog/post_create.html'
